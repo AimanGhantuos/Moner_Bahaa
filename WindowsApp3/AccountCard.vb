@@ -4,7 +4,6 @@ Imports CrystalDecisions
 Public Class AccountCard
     Private Sub AccountCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-
         Dim Load_QuotationHistory As New DataSet
         LoadDataSQL($"SELECT [QuotationNum]
       ,[QuotationDate]

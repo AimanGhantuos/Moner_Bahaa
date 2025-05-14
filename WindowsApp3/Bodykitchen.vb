@@ -23,7 +23,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        '
         Dim sql As String = "INSERT INTO [Bodykitchen] ([BodyName],[Size],[Model],[Color],[Price],[Note])
             values (@BodyName,@Size,@Model,@Color,@Price,@Note)"
         Dim para1 As New Dictionary(Of String, Object) From {

@@ -152,6 +152,7 @@
     <Compile Include="Marble.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module1.vb" />
     <Compile Include="PrintPreview.Designer.vb">
       <DependentUpon>PrintPreview.vb</DependentUpon>
     </Compile>

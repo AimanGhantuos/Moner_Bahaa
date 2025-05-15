@@ -1,7 +1,9 @@
 ﻿Imports System.IO
 Imports CrystalDecisions
 
+
 Public Class AccountCard
+
     Private Sub AccountCard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim Load_QuotationHistory As New DataSet
@@ -17,14 +19,6 @@ Public Class AccountCard
     Private Sub הוספתהצעהחדשהToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles הוספתהצעהחדשהToolStripMenuItem.Click
         Quotation.Show()
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-
-
-
-    End Sub
-
 
 
     Private Sub PictureBox1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseDoubleClick
@@ -76,7 +70,7 @@ Public Class AccountCard
 
     Private Sub DataGridView2_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView2.CellMouseDoubleClick
 
-        Quotation.Label8.Text = Val(Label8.Text)
+        Quotation.Label8.Text = Val(Label5.Text)
         Quotation.DateTimePicker1.Value = CDate(DataGridView1.SelectedRows(0).Cells("QuotationDate").Value)
         Quotation.DateTimePicker1.Enabled = False
         Quotation.Label2.Text = DataGridView1.SelectedRows(0).Cells("QuotationNum").Value
@@ -193,8 +187,8 @@ Public Class AccountCard
         '------ חישוב ס"הכ מחיר מע"מ + כולל מע"מ --------
         row = ds.QuotationMore.NewRow
         row("QuotationDate") = DataGridView1.SelectedRows(0).Cells("QuotationDate").Value
-        row("TotalQuotation") = Format(FormatNumber(Val(Label8.Text), , TriState.False), "Currency")
-        row("TotalQuotationTAX") = Format(FormatNumber(Val(Label8.Text) * (1.18), , TriState.False), "Currency")
+        row("TotalQuotation") = Format(Label8.Text, "Currency")
+        row("TotalQuotationTAX") = Format(TotalQuotation * (TaxVal), "Currency")
 
         '------ חישוב ס"הכ מחיר מטבח ללא מע"מ + כולל מע"מ --------
         Dim ToTalKitchen As New DataSet
@@ -205,7 +199,7 @@ Public Class AccountCard
         Dim ToTalKitchenTax As New DataSet
         LoadDataSQL($"SELECT SUM([DiscountPrice])
         FROM [Quotation] Where [Type]=1 and [QuotationNum]={Val(DataGridView1.SelectedRows(0).Cells("QuotationNum").Value)}", ToTalKitchenTax)
-        row("TotalKitchenTax") = Format(FormatNumber(Val(ToTalKitchenTax.Tables(0).Rows(0)(0).ToString) * (1.18), , TriState.False), "Currency")
+        row("TotalKitchenTax") = Format(FormatNumber(Val(ToTalKitchenTax.Tables(0).Rows(0)(0).ToString) * (TaxVal), , TriState.False), "Currency")
 
 
         '------ חישוב ס"הכ מחיר שיש ללא מע"מ + כולל מע"מ --------
@@ -217,7 +211,7 @@ Public Class AccountCard
         Dim ToTalMarbleTax As New DataSet
         LoadDataSQL($"SELECT SUM([DiscountPrice])
         FROM [Quotation] Where [Type]=3 and [QuotationNum]={Val(DataGridView1.SelectedRows(0).Cells("QuotationNum").Value)}", ToTalMarbleTax)
-        row("MarbleTax") = Format(FormatNumber(Val(ToTalMarbleTax.Tables(0).Rows(0)(0).ToString) * (1.18), , TriState.False), "Currency")
+        row("MarbleTax") = Format(FormatNumber(Val(ToTalMarbleTax.Tables(0).Rows(0)(0).ToString) * (TaxVal), , TriState.False), "Currency")
 
 
 
@@ -230,7 +224,7 @@ Public Class AccountCard
         Dim ToTalColleTax As New DataSet
         LoadDataSQL($"SELECT SUM([DiscountPrice])
         FROM [Quotation] Where [Type] = 2 and [QuotationNum] = {Val(DataGridView1.SelectedRows(0).Cells("QuotationNum").Value)}", ToTalColleTax)
-        row("ColleTax") = Format(FormatNumber(Val(ToTalColleTax.Tables(0).Rows(0)(0).ToString) * (1.18), , TriState.False), "Currency")
+        row("ColleTax") = Format(FormatNumber(Val(ToTalColleTax.Tables(0).Rows(0)(0).ToString) * (TaxVal), , TriState.False), "Currency")
 
 
 
@@ -319,7 +313,7 @@ Public Class AccountCard
         LoadDataSQL($"SELECT SUM([DiscountPrice])
         FROM [Quotation] Where [QuotationNum]={Val(DataGridView1.SelectedRows(0).Cells("QuotationNum").Value)}", ToTal)
         Label8.Text = Format(ToTal.Tables(0).Rows(0)(0).ToString, "Currency")
-
+        TotalQuotation = ToTal.Tables(0).Rows(0)(0).ToString
 
         Dim QuotationImage As New DataSet
         LoadDataSQL($"SELECT [Image] FROM [QuotationHistory] WHERE [QuotationNum]={Val(DataGridView1.SelectedRows(0).Cells("QuotationNum").Value)}", QuotationImage)

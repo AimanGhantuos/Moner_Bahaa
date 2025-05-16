@@ -11,6 +11,7 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        addressData.LoadAddresses()
         LodCustmer()
     End Sub
 
@@ -78,4 +79,6 @@
     Private Sub רשימתשישToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles רשימתשישToolStripMenuItem.Click
         Marble.ShowDialog()
     End Sub
+
+
 End Class

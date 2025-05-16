@@ -136,6 +136,7 @@
     <Compile Include="Bodykitchen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddressDataManager.vb" />
     <Compile Include="CrystalReport7.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -399,6 +400,11 @@
   <ItemGroup>
     <Content Include="gevanco_icon_64x64_transparent.ico" />
     <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -14,6 +14,8 @@ Public Class AccountCard
         DataGridView1.DataSource = Load_QuotationHistory.Tables(0)
         DataGridView1.ClearSelection()
 
+        TextBox3.AutoCompleteCustomSource = addressData.autoComplete
+
     End Sub
 
     Private Sub הוספתהצעהחדשהToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles הוספתהצעהחדשהToolStripMenuItem.Click

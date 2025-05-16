@@ -54,4 +54,8 @@
     Private Sub TextBox_AccountID_TextChanged(sender As Object, e As EventArgs) Handles TextBox_AccountID.TextChanged
         TextBox_AccountID.MaxLength = "9"
     End Sub
+
+    Private Sub AddNewAccount_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox3.AutoCompleteCustomSource = addressData.autoComplete
+    End Sub
 End Class

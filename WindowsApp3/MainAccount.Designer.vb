@@ -32,6 +32,7 @@ Partial Class MainAccount
         Me.מוצריםToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.רשימתמוצריםToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.רשימתגופימטבחיםToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.רשימתשישToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,7 +43,6 @@ Partial Class MainAccount
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.רשימתשישToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -137,6 +137,14 @@ Partial Class MainAccount
         Me.רשימתגופימטבחיםToolStripMenuItem.Name = "רשימתגופימטבחיםToolStripMenuItem"
         Me.רשימתגופימטבחיםToolStripMenuItem.Size = New System.Drawing.Size(286, 38)
         Me.רשימתגופימטבחיםToolStripMenuItem.Text = "רשימת גופי מטבחים"
+        '
+        'רשימתשישToolStripMenuItem
+        '
+        Me.רשימתשישToolStripMenuItem.Image = Global.WindowsApp3.My.Resources.Resources._5027873_business_look_see_vision_icon
+        Me.רשימתשישToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.רשימתשישToolStripMenuItem.Name = "רשימתשישToolStripMenuItem"
+        Me.רשימתשישToolStripMenuItem.Size = New System.Drawing.Size(286, 38)
+        Me.רשימתשישToolStripMenuItem.Text = "רשימת שיש"
         '
         'TableLayoutPanel1
         '
@@ -274,14 +282,6 @@ Partial Class MainAccount
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "חפש"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'רשימתשישToolStripMenuItem
-        '
-        Me.רשימתשישToolStripMenuItem.Image = Global.WindowsApp3.My.Resources.Resources._5027873_business_look_see_vision_icon
-        Me.רשימתשישToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.רשימתשישToolStripMenuItem.Name = "רשימתשישToolStripMenuItem"
-        Me.רשימתשישToolStripMenuItem.Size = New System.Drawing.Size(286, 38)
-        Me.רשימתשישToolStripMenuItem.Text = "רשימת שיש"
         '
         'MainAccount
         '
